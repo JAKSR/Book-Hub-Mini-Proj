@@ -26,59 +26,56 @@ class NavBar extends Component {
     const {click} = this.state
 
     return (
-      <>
-        <div className="navbar">
-          <Link to="/" className="nav-logo">
-            <img
-              src="https://res.cloudinary.com/usgheroop/image/upload/v1645431204/Books%20Hub%20Mini%20Proj/Group_7731_fw9vij.png"
-              alt="website logo"
-              className="nav-logo"
-            />
-          </Link>
-
-          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-            <li className="nav-item">
-              <Link
-                to="/"
-                activeClassName="active"
-                className="nav-links"
-                onClick={this.handleClick}
-              >
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                to="/shelf"
-                activeClassName="active"
-                className="nav-links"
-                onClick={this.handleClick}
-              >
-                Bookshelves
-              </Link>
-            </li>
-            <li>
-              <button
-                type="button"
-                onClick={this.onClickLogout}
-                className="logout-btn"
-              >
-                Logout
-              </button>
-            </li>
-          </ul>
-
-          <div className="nav-icon">
-            <button
-              type="button"
-              className="mobile-btn"
+      <nav className="navbar">
+        <Link to="/" className="nav-logo">
+          <img
+            src="https://res.cloudinary.com/usgheroop/image/upload/v1645431204/Books%20Hub%20Mini%20Proj/Group_7731_fw9vij.png"
+            alt="website logo"
+            className="nav-logo"
+          />
+        </Link>
+        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          <li className="nav-item">
+            <Link
+              to="/"
+              activeClassName="active"
+              className="nav-links"
               onClick={this.handleClick}
             >
-              {click ? <FaTimes /> : <FaBars />}
+              Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/shelf"
+              activeClassName="active"
+              className="nav-links"
+              onClick={this.handleClick}
+            >
+              Bookshelves
+            </Link>
+          </li>
+          <li>
+            <button
+              type="button"
+              onClick={this.onClickLogout}
+              className="logout-btn"
+            >
+              Logout
             </button>
-          </div>
+          </li>
+        </ul>
+
+        <div className="nav-icon">
+          <button
+            type="button"
+            className="mobile-btn"
+            onClick={this.handleClick}
+          >
+            {click ? <FaTimes /> : <FaBars />}
+          </button>
         </div>
-      </>
+      </nav>
     )
   }
 }

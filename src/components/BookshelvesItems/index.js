@@ -10,7 +10,9 @@ const BookshelvesItems = props => {
     setLabel(label)
   }
 
-  const activeClass = isActive ? 'left-item-active' : 'left-item-normal'
+  const activeClass = isActive
+    ? 'left-items left-item-active'
+    : 'left-items left-item-normal'
 
   return (
     <>
@@ -18,7 +20,7 @@ const BookshelvesItems = props => {
         <button
           type="button"
           onClick={onClickItem}
-          className={`left-items ${activeClass}`}
+          className={`${activeClass}`}
         >
           {label}
         </button>

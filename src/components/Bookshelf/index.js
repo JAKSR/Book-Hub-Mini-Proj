@@ -9,6 +9,7 @@ import NavBar from '../NavBar'
 import BookshelvesItems from '../BookshelvesItems'
 import Footer from '../Footer'
 import './index.css'
+import './bookshelf.css'
 
 const bookshelvesList = [
   {
@@ -197,7 +198,55 @@ class Bookshelves extends Component {
     return (
       <>
         <NavBar />
-        <div className="bookshelves-app-div">
+        <div className="main-div">
+          <div className="left-bar">
+            <h1 className="left-bar-hd">Bookshelves</h1>
+            <ul className="left-bar-ul">
+              {bookshelvesList.map(eachItem => (
+                <BookshelvesItems
+                  key={eachItem.id}
+                  details={eachItem}
+                  clickingItem={this.changeShelfValue}
+                  isActive={activeItem === eachItem.id}
+                  setActiveTab={this.setActiveTab}
+                  setLabel={this.setLabel}
+                />
+              ))}
+            </ul>
+          </div>
+          <div className="right-search-div">
+            <h1 className="right-hd">{hd} Books</h1>
+            <div className="search-div">
+              <input
+                type="search"
+                className="search"
+                placeholder="search"
+                value={searchInput}
+                onChange={this.onChangeSearchInput}
+              />
+              <button
+                testid="searchButton"
+                type="button"
+                className="search-btn"
+                onClick={this.onClickSearch}
+              >
+                <BsSearch className="search-icon" />
+              </button>
+            </div>
+          </div>
+          <div className="api-books-div">{this.renderAllBooks()}</div>
+        </div>
+        <Footer style={{background: '#f5f7fa'}} />
+      </>
+    )
+  }
+}
+
+export default Bookshelves
+
+/*
+
+<div className="bookshelves-app-div">
           <div className="major-top-div">
             <div className="major-div">
               <div className="left-div">
@@ -236,6 +285,7 @@ class Bookshelves extends Component {
                     </button>
                   </div>
                 </div>
+
                 <div className="renderAllBooks-div">
                   {this.renderAllBooks()}
                 </div>
@@ -244,15 +294,12 @@ class Bookshelves extends Component {
             </div>
           </div>
         </div>
-      </>
-    )
-  }
-}
 
-export default Bookshelves
+*/
 
 /* 
-<div className="mobile-view-div">
+
+          <div className="mobile-view-div">
             <div className="search-mb-div">
               <div className="search-div">
                 <input
